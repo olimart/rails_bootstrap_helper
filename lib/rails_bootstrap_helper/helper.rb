@@ -82,7 +82,7 @@ module RailsBootstrapHelper
       end
 
       klass << options[:class].strip.split(/\s+/) unless options[:class].blank?
-      options[:class] = klass.flatten.join(" ")
+      #options[:class] = klass.flatten.join(" ")
       button_link_to (icon_tag + " #{text}").html_safe, url, options
     end
 
