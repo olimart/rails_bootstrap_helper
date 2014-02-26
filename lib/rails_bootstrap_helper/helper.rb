@@ -65,12 +65,12 @@ module RailsBootstrapHelper
       icon = options.delete(:icon) if options.has_key?(:icon)
       icon_tag = ''
       if icon
-        klass = ["glyphicon glyphicon-#{icon}"]
+        klazz = ["glyphicon glyphicon-#{icon}"]
         if options.has_key?(:white)
-          klass << ["icon-white"]
+          klazz << ["icon-white"]
           options.delete(:white)
         end
-        icon_tag = content_tag(:span, '', class: klass.join(' '))
+        icon_tag = content_tag(:span, '', class: klazz.join(' '))
       end
       if options.has_key?(:size)
         klass << "btn-#{options[:size]}"
@@ -81,8 +81,8 @@ module RailsBootstrapHelper
         options.delete(:level)
       end
 
-      # klass << options[:class].strip.split(/\s+/) unless options[:class].blank?
-      # options[:class] = klass.flatten.join(" ")
+      klass << options[:class].strip.split(/\s+/) unless options[:class].blank?
+      options[:class] = klass.flatten.join(" ")
       button_link_to (icon_tag + " #{text}").html_safe, url, options
     end
 
