@@ -86,6 +86,10 @@ module RailsBootstrapHelper
       button_link_to (icon_tag + " #{text}").html_safe, url, options
     end
 
+    def icon_tag(icon)
+      content_tag(:i, '', class: "glyphicon glyphicon-#{icon}")
+    end
+
   end
 
 end
