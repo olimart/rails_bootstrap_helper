@@ -35,7 +35,7 @@ module RailsBootstrapHelper
       icon = options.delete(:icon) if options.has_key?(:icon)
       icon_tag = ''
       if icon
-        icon_klass = ["glyphicon-#{icon}"]
+        icon_klass = ["glyphicon glyphicon-#{icon}"]
         if options.has_key?(:white)
           icon_klass << ["icon-white"]
           options.delete(:white)
