@@ -13,7 +13,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.name          = "rails_bootstrap_helper"
   gem.require_paths = ["lib"]
-  gem.version       = "1.0.3"
+  gem.version       = "1.0.4"
 
   gem.add_dependency "railties",    ">= 4.0"
   gem.add_dependency "simple_form", ">= 3.0"
