@@ -1,4 +1,4 @@
-# Twitter Bootstrap Helper for Rails 4 or 5
+# Bootstrap Helpers for Ruby on Rails 4 or 5
 
 ** Run tests**
 

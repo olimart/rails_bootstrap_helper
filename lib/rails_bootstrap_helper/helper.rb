@@ -10,6 +10,8 @@ module RailsBootstrapHelper
       klass = ["label"]
       if options.has_key?(:level)
         klass << "label-#{options.delete(:level).to_s}"
+      else
+        klass << "label-default"
       end
       klass << options[:class].strip.split(/\s+/) unless options[:class].blank?
       options[:class] = klass.flatten.join(" ")
@@ -20,6 +22,8 @@ module RailsBootstrapHelper
       klass = ["badge"]
       if options.has_key?(:level)
         klass << "badge-#{options.delete(:level).to_s}"
+      else
+        klass << "badge-default"
       end
       klass << options[:class].strip.split(/\s+/) unless options[:class].blank?
       options[:class] = klass.flatten.join(" ")
@@ -40,7 +44,7 @@ module RailsBootstrapHelper
           icon_klass << ["icon-white"]
           options.delete(:white)
         end
-        icon_tag = content_tag(:i, '', class: icon_klass.join(' '))
+        icon_tag = content_tag(:span, '', class: icon_klass.join(' '))
       end
       link_to (icon_tag + " #{text}").html_safe, url, options
     end
@@ -54,6 +58,8 @@ module RailsBootstrapHelper
       if options.has_key?(:level)
         klass << "btn-#{options[:level]}"
         options.delete(:level)
+      else
+        klass << "btn-default"
       end
       klass << options[:class].strip.split(/\s+/) unless options[:class].blank?
       options[:class] = klass.flatten.join(" ")
@@ -61,7 +67,7 @@ module RailsBootstrapHelper
     end
 
     def icon_button_link_to(text, url, options)
-      klass = ["btn"]
+      klass = [""]
       icon = options.delete(:icon) if options.has_key?(:icon)
       icon_tag = ''
       if icon
@@ -77,8 +83,10 @@ module RailsBootstrapHelper
         options.delete(:size)
       end
       if options.has_key?(:level)
-        klass << "btn-#{options[:level]}"
-        options.delete(:level)
+        # klass << "btn-#{options[:level]}"
+        # options.delete(:level)
+      else
+        options[:level] = "default"
       end
 
       klass << options[:class].strip.split(/\s+/) unless options[:class].blank?
@@ -87,9 +95,7 @@ module RailsBootstrapHelper
     end
 
     def icon_tag(icon)
-      content_tag(:i, '', class: "glyphicon glyphicon-#{icon}")
+      content_tag(:span, '', class: "glyphicon glyphicon-#{icon}")
     end
-
   end
-
 end
