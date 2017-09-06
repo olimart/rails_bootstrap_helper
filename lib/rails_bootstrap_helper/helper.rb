@@ -1,17 +1,16 @@
 # coding: utf-8
 module RailsBootstrapHelper
-
   module Helper
     def info_tag(text)
       content_tag(:i, '', class: 'glyphicon-info-sign', rel: 'tooltip', title: text) + " "
     end
 
     def status_tag(status, options = {})
-      klass = ["label"]
+      klass = ["badge"]
       if options.has_key?(:level)
-        klass << "label-#{options.delete(:level).to_s}"
+        klass << "badge-#{options.delete(:level).to_s}"
       else
-        klass << "label-default"
+        klass << "badge-default"
       end
       klass << options[:class].strip.split(/\s+/) unless options[:class].blank?
       options[:class] = klass.flatten.join(" ")
@@ -30,7 +29,19 @@ module RailsBootstrapHelper
       content_tag(:span, status, options)
     end
 
-    def badge_link_to(name, url, options={})
+    def pill_badge_tag(status, options = {})
+      klass = ["badge badge-pill"]
+      if options.has_key?(:level)
+        klass << "badge-#{options.delete(:level).to_s}"
+      else
+        klass << "badge-default"
+      end
+      klass << options[:class].strip.split(/\s+/) unless options[:class].blank?
+      options[:class] = klass.flatten.join(" ")
+      content_tag(:span, status, options)
+    end
+
+    def badge_link_to(name, url, options = {})
       badge = content_tag(:span, options.delete(:count).presence || "", class: "badge")
       link_to((name + " " + badge).html_safe, url, options)
     end
@@ -49,17 +60,22 @@ module RailsBootstrapHelper
       link_to (icon_tag + " #{text}").html_safe, url, options
     end
 
-    def button_link_to(text, url, options={})
+    def button_link_to(text, url, options = {})
       klass = ["btn"]
       if options.has_key?(:size)
         klass << "btn-#{options[:size]}"
         options.delete(:size)
       end
       if options.has_key?(:level)
-        klass << "btn-#{options[:level]}"
+        if options.has_key?(:outline)
+          klass << "btn-outline-#{options[:level]}"
+          options.delete(:outline)
+        else
+          klass << "btn-#{options[:level]}"
+        end
         options.delete(:level)
       else
-        klass << "btn-default"
+        klass << "btn-secondary"
       end
       klass << options[:class].strip.split(/\s+/) unless options[:class].blank?
       options[:class] = klass.flatten.join(" ")
@@ -86,7 +102,7 @@ module RailsBootstrapHelper
         # klass << "btn-#{options[:level]}"
         # options.delete(:level)
       else
-        options[:level] = "default"
+        options[:level] = "secondary"
       end
 
       klass << options[:class].strip.split(/\s+/) unless options[:class].blank?
