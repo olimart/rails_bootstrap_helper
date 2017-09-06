@@ -5,7 +5,7 @@ class RailsBootstrapHelperTest < ActionView::TestCase
   tests RailsBootstrapHelper::Helper
 
   def test_status_tag
-    assert_equal '<span class="badge badge-default">Default</span>', status_tag("Default")
+    assert_equal '<span class="badge badge-secondary">Default</span>', status_tag("Default")
     assert_equal '<span class="badge badge-success">Success</span>', status_tag("Success", level: 'success')
     assert_equal '<span class="badge badge-warning">Warning</span>', status_tag("Warning", level: 'warning')
     assert_equal '<span class="badge badge-important">Important</span>', status_tag("Important", level: 'important')
@@ -16,7 +16,7 @@ class RailsBootstrapHelperTest < ActionView::TestCase
   end
 
   def test_badge_tag
-    assert_equal '<span class="badge badge-default">Default</span>', badge_tag("Default")
+    assert_equal '<span class="badge badge-secondary">Default</span>', badge_tag("Default")
     assert_equal '<span class="badge badge-success">Success</span>', badge_tag("Success", level: 'success')
     assert_equal '<span class="badge badge-warning">Warning</span>', badge_tag("Warning", level: 'warning')
     assert_equal '<span class="badge badge-danger">Danger</span>', badge_tag("Danger", level: 'danger')
@@ -27,7 +27,7 @@ class RailsBootstrapHelperTest < ActionView::TestCase
   end
 
   def test_pill_badge_tag
-    assert_equal '<span class="badge badge-pill badge-default">Default</span>', pill_badge_tag("Default")
+    assert_equal '<span class="badge badge-pill badge-secondary">Default</span>', pill_badge_tag("Default")
     assert_equal '<span class="badge badge-pill badge-success">Success</span>', pill_badge_tag("Success", level: 'success')
   end
 

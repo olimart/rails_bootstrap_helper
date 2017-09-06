@@ -10,7 +10,7 @@ module RailsBootstrapHelper
       if options.has_key?(:level)
         klass << "badge-#{options.delete(:level).to_s}"
       else
-        klass << "badge-default"
+        klass << "badge-secondary"
       end
       klass << options[:class].strip.split(/\s+/) unless options[:class].blank?
       options[:class] = klass.flatten.join(" ")
@@ -22,7 +22,7 @@ module RailsBootstrapHelper
       if options.has_key?(:level)
         klass << "badge-#{options.delete(:level).to_s}"
       else
-        klass << "badge-default"
+        klass << "badge-secondary"
       end
       klass << options[:class].strip.split(/\s+/) unless options[:class].blank?
       options[:class] = klass.flatten.join(" ")
@@ -34,7 +34,7 @@ module RailsBootstrapHelper
       if options.has_key?(:level)
         klass << "badge-#{options.delete(:level).to_s}"
       else
-        klass << "badge-default"
+        klass << "badge-secondary"
       end
       klass << options[:class].strip.split(/\s+/) unless options[:class].blank?
       options[:class] = klass.flatten.join(" ")
