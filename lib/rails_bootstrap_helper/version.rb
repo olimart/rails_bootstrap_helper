@@ -1,5 +1,3 @@
 module RailsBootstrapHelper
-  module Rails
-    VERSION = "1.5.0"
-  end
+  VERSION = "1.5.1"
 end
