@@ -2,7 +2,7 @@
 module RailsBootstrapHelper
   module Helper
     def info_tag(text)
-      content_tag(:i, '', class: 'glyphicon-info-sign', rel: 'tooltip', title: text) + " "
+      content_tag(:i, '', class: 'icon-info-sign', rel: 'tooltip', title: text) + " "
     end
 
     def status_tag(status, options = {})
@@ -50,7 +50,7 @@ module RailsBootstrapHelper
       icon = options.delete(:icon) if options.has_key?(:icon)
       icon_tag = ''
       if icon
-        icon_klass = ["glyphicon glyphicon-#{icon}"]
+        icon_klass = ["icon icon-#{icon}"]
         if options.has_key?(:white)
           icon_klass << ["icon-white"]
           options.delete(:white)
@@ -62,21 +62,17 @@ module RailsBootstrapHelper
 
     def button_link_to(text, url, options = {})
       klass = ["btn"]
-      if options.has_key?(:size)
-        klass << "btn-#{options[:size]}"
-        options.delete(:size)
-      end
       if options.has_key?(:level)
-        if options.has_key?(:outline)
-          klass << "btn-outline-#{options[:level]}"
-          options.delete(:outline)
-        else
-          klass << "btn-#{options[:level]}"
-        end
+        klass << "btn-#{options[:level]}"
         options.delete(:level)
       else
         klass << "btn-secondary"
       end
+      if options.has_key?(:size)
+        klass << "btn-#{options[:size]}"
+        options.delete(:size)
+      end
+
       klass << options[:class].strip.split(/\s+/) unless options[:class].blank?
       options[:class] = klass.flatten.join(" ")
       link_to text, url, options
@@ -87,22 +83,12 @@ module RailsBootstrapHelper
       icon = options.delete(:icon) if options.has_key?(:icon)
       icon_tag = ''
       if icon
-        klazz = ["glyphicon glyphicon-#{icon}"]
+        klazz = ["icon icon-#{icon}"]
         if options.has_key?(:white)
           klazz << ["icon-white"]
           options.delete(:white)
         end
         icon_tag = content_tag(:span, '', class: klazz.join(' '))
-      end
-      if options.has_key?(:size)
-        klass << "btn-#{options[:size]}"
-        options.delete(:size)
-      end
-      if options.has_key?(:level)
-        # klass << "btn-#{options[:level]}"
-        # options.delete(:level)
-      else
-        options[:level] = "secondary"
       end
 
       klass << options[:class].strip.split(/\s+/) unless options[:class].blank?
@@ -111,7 +97,7 @@ module RailsBootstrapHelper
     end
 
     def icon_tag(icon)
-      content_tag(:span, '', class: "glyphicon glyphicon-#{icon}")
+      content_tag(:span, '', class: "icon icon-#{icon}")
     end
   end
 end
