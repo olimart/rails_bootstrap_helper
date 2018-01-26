@@ -99,5 +99,10 @@ module RailsBootstrapHelper
     def icon_tag(icon)
       content_tag(:span, '', class: "icon icon-#{icon}")
     end
+
+    def inline_svg(path)
+      file = File.open("app/assets/images/#{path}", "rb")
+      raw file.read
+    end
   end
 end
