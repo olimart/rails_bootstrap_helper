@@ -55,6 +55,9 @@ class RailsBootstrapHelperTest < ActionView::TestCase
   end
 
   def test_icon_tag
-    assert_equal icon_tag('star'), '<span class="icon icon-star"></span>'
+    assert_equal '<span class="icon icon-star"></span>', icon_tag('star')
+    assert_equal '<span class="icon icon-star text-success"></span>', icon_tag('star', class: 'text-success')
+    assert_equal '<span class="icon icon-star" style="color:white"></span>', icon_tag('star', style: 'color:white')
+    assert_equal '<span class="icon icon-star text-success" style="color:white"></span>', icon_tag('star', class: 'text-success', style: 'color:white')
   end
 end

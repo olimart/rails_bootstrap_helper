@@ -96,8 +96,11 @@ module RailsBootstrapHelper
       button_link_to (icon_tag + " #{text}").html_safe, url, options
     end
 
-    def icon_tag(icon)
-      content_tag(:span, '', class: "icon icon-#{icon}")
+    def icon_tag(icon, options = {})
+      klass = ["icon icon-#{icon}"]
+      klass << options[:class].strip.split(/\s+/) unless options[:class].blank?
+      options[:class] = klass.flatten.join(" ")
+      content_tag(:span, '', class: options[:class], style: options[:style])
     end
 
     def inline_svg(path)
