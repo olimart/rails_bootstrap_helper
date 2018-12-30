@@ -107,5 +107,9 @@ module RailsBootstrapHelper
       file = File.open("app/assets/images/#{path}", "rb")
       raw file.read
     end
+
+    def nav_link(name, path)
+      content_tag :li, link_to(name, path, class: 'nav-link'), class: 'nav-item'
+    end
   end
 end

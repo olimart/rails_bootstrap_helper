@@ -60,4 +60,9 @@ class RailsBootstrapHelperTest < ActionView::TestCase
     assert_equal '<span class="icon icon-star" style="color:white"></span>', icon_tag('star', style: 'color:white')
     assert_equal '<span class="icon icon-star text-success" style="color:white"></span>', icon_tag('star', class: 'text-success', style: 'color:white')
   end
+
+  def test_nav_link
+    # content_tag :li, link_to(name, path, class: 'nav-link'), class: 'nav-item'
+    assert_equal '<li class="nav-item"><a class="nav-link" href="http://google.com">Google</a></li>', nav_link("Google", "http://google.com")
+  end
 end
